@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>English to Stenography Converter</title>
+    <style>
+        body {
+            background-color: #eef2f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #2196f3;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        .text-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .image-section {
+            background-color: #f1f3f4;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .audio-section {
+            background-color: #e0f2f1;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .text-input {
+            background-color: #eaeff1;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .word-count-indicator {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>English to Stenography Converter</h1>
+    </div>
+
+    <div class="content">
+        <div class="text-section">
+            <h2>Text to Stenography</h2>
+            <textarea id="text-input" class="text-input" rows="5" maxlength="1000" placeholder="Enter English text (up to 1000 words)" oninput="countWords()"></textarea>
+            <div id="word-count-indicator" class="word-count-indicator"></div>
+            <br>
+            <button class="button" onclick="convertTextToStenography()">Convert</button>
+            <p class="output" id="stenography-output"></p>
+        </div>
+
+        <div class="image-section">
+            <h2>Image to Stenography</h2>
+            <input type="file" id="image-input" accept="image/*" onchange="validateImageSize(event)">
+            <br>
+            <button class="button" onclick="convertImageToStenography()">Convert</button>
+            <p class="output" id="image-stenography-output"></p>
+        </div>
+
+        <div class="audio-section">
+            <h2>Audio to Stenography</h2>
+            <input type="file" id="audio-input" accept="audio/*" onchange="validateAudioSize(event)">
+            <br>
+            <button class="button" onclick="convertAudioToStenography()">Convert</button>
+            <p class="output" id="audio-stenography-output"></p>
+        </div>
+    </div>
+
+    <script>
+        function countWords() {
+            var text = document.getElementById("text-input").value;
+            var wordCount = text.trim().split(/\s+/).length;
+
+            var indicator = document.getElementById("word-count-indicator");
+            indicator.textContent = wordCount + " words";
+        }
+
+        /* Other JavaScript code omitted for brevity */
+    </script>
+</body>
+</html>
